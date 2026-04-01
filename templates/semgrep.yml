@@ -1,0 +1,17 @@
+name: Semgrep CI
+
+on:
+  pull_request: {}
+  workflow_dispatch: {}
+  push:
+    branches:
+      - main
+    paths:
+      - .github/workflows/semgrep.yml
+  schedule:
+    - cron: 0 1 * * *
+
+jobs:
+  semgrep:
+    uses: p0-security/workflows/.github/workflows/semgrep-reusable.yml@main
+    secrets: inherit
