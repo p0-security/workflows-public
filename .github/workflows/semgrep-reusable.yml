@@ -1,7 +1,12 @@
 name: Semgrep (Reusable)
 
 on:
-  workflow_call: {}
+  workflow_call:
+    secrets:
+      SEMGREP_RULES_APP_ID:
+        required: true
+      SEMGREP_RULES_APP_PRIVATE_KEY:
+        required: true
 
 permissions:
   contents: read
